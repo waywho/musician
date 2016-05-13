@@ -1,0 +1,43 @@
+
+		<!--=== Header v6 ===-->
+		
+			<!-- Navbar -->
+			<div class="navbar mega-menu" role="navigation">
+				<div class="container">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="menu-container">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+
+						<!-- Navbar Brand -->
+						<div class="navbar-brand">
+							<a href="index.html">
+								<%= image_tag 'jramster-logo.png', alt: "Logo", :class => "shrink-logo" %>
+							</a>
+						</div>
+						<!-- ENd Navbar Brand -->
+
+					</div>
+
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse navbar-responsive-collapse">
+						
+							<%= navigation_menu.to_html %>
+						
+					</div><!--/navbar-collapse-->
+				</div>
+			</div>
+			<!-- End Navbar -->
+		
+		<!--=== End Header v6 ===-->
+
+<script>
+    jQuery(document).ready(function() {
+      	App.init();
+        StyleSwitcher.initStyleSwitcher();        
+    });
+</script>
