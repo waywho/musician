@@ -15,8 +15,8 @@
         scrollByPage: false,
         defaultFilter: '*',
         animationType: 'slideLeft',
-        gapHorizontal: 0,
-        gapVertical: 0,
+        gapHorizontal: 20,
+        gapVertical: 20,
         gridAdjustment: 'responsive',
         mediaQueries: [{
             width: 800,
