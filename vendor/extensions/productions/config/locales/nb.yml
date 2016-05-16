@@ -1,0 +1,31 @@
+nb:
+  refinery:
+    plugins:
+      productions:
+        title: Productions
+    productions:
+      admin:
+        productions:
+          actions:
+            create_new: Lag en ny Production
+            reorder: Endre rekkefølgen på Productions
+            reorder_done: Ferdig å endre rekkefølgen Productions
+          records:
+            title: Productions
+            sorry_no_results: Beklager! Vi fant ikke noen resultater.
+            no_items_yet: Det er ingen Productions enda. Klikk på "Lag en ny Production" for å legge til din første production.
+          production:
+            view_live_html: Vis hvordan denne production ser ut offentlig <br/><em>(åpner i et nytt vindu)</em>
+            edit: Rediger denne production
+            delete: Fjern denne production permanent
+      productions:
+        show:
+          other: Andre Productions
+  activerecord:
+    attributes:
+      'refinery/productions/production':
+        title: Title
+        feature_image: Feature Image
+        company: Company
+        production_date: Production Date
+        description: Description

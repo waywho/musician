@@ -1,0 +1,49 @@
+<%= form_for [refinery, :productions_admin, @production] do |f| -%>
+  <%= render '/refinery/admin/error_messages',
+              :object => @production,
+              :include_object_name => true %>
+
+  <div class='field'>
+    <%= f.label :title -%>
+    <%= f.text_field :title, :class => 'larger widest' -%>
+  </div>
+
+  <div class='field'>
+    <%= f.label :feature_image -%>
+    <%= render '/refinery/admin/image_picker',
+               :f => f,
+               :field => :feature_image_id,
+               :image => @production.feature_image,
+               :toggle_image_display => false -%>
+  </div>
+
+  <div class='field'>
+    <%= f.label :company -%>
+    <%= f.text_field :company -%>
+  </div>
+
+  <div class='field'>
+    <%= f.label :production_date -%>
+    <%= f.date_select :production_date -%>
+  </div>
+
+  <div class='field'>
+    <%= render '/refinery/admin/wysiwyg',
+                :f => f,
+                :fields => [:description],
+                :object => "productions/production" -%>
+  </div>
+
+  <%= render '/refinery/admin/form_actions', :f => f,
+             :continue_editing => false,
+             :delete_title => t('delete', :scope => 'refinery.productions.admin.productions.production'),
+             :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @production.title) -%>
+<% end -%>
+
+<% content_for :javascripts do -%>
+  <script>
+    $(document).ready(function(){
+      page_options.init(false, '', '');
+    });
+  </script>
+<% end -%>

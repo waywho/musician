@@ -1,16 +1,4 @@
 GIT
-  remote: git://github.com/refinery/refinerycms-portfolio.git
-  revision: 86cf5c928c4d1d588cfe4b0922f47ec41058c33c
-  branch: master
-  specs:
-    refinerycms-portfolio (3.0.0)
-      friendly_id (~> 5.1.0)
-      friendly_id-globalize (>= 1.0.0.alpha2)
-      globalize (>= 4.0.0, < 5.2)
-      refinerycms-acts-as-indexed (~> 2.0.0)
-      refinerycms-core (~> 3.0.0)
-
-GIT
   remote: https://github.com/refinery/refinerycms
   revision: c293161cc8fd65c0f97f530212546846e6b087ec
   branch: master
@@ -52,6 +40,22 @@ GIT
       dragonfly (~> 1.0.0)
       globalize (>= 4.0.0, < 5.2)
       refinerycms-core (= 3.0.3)
+
+GIT
+  remote: https://github.com/refinery/refinerycms-page-images
+  revision: 3751e271511cad5907bce5c51e9247816a4c6526
+  specs:
+    refinerycms-page-images (3.0.0)
+      decorators (~> 2.0.0)
+      globalize (~> 5.0)
+      refinerycms-pages (~> 3.0.0)
+
+PATH
+  remote: vendor/extensions
+  specs:
+    refinerycms-productions (1.0)
+      acts_as_indexed (~> 0.8.0)
+      refinerycms-core (~> 3.0.3)
 
 GEM
   remote: https://rubygems.org/
@@ -135,8 +139,6 @@ GEM
       sass (>= 3.2)
     friendly_id (5.1.0)
       activerecord (>= 4.0.0)
-    friendly_id-globalize (1.0.0.alpha2)
-      friendly_id (~> 5.1.0, < 6.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     globalize (5.0.1)
@@ -278,7 +280,8 @@ DEPENDENCIES
   refinerycms!
   refinerycms-acts-as-indexed (~> 2.0, >= 2.0.0)
   refinerycms-authentication-devise (~> 1.0)
-  refinerycms-portfolio!
+  refinerycms-page-images (~> 3.0.0)!
+  refinerycms-productions!
   refinerycms-wymeditor (~> 1.0, >= 1.0.6)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

@@ -1,0 +1,31 @@
+tr:
+  refinery:
+    plugins:
+      productions:
+        title: Productions
+    productions:
+      admin:
+        productions:
+          actions:
+            create_new: Yeni Ekle Production
+            reorder: Tekrar sirala Productions
+            reorder_done: Tekrar siralama tamamlandiProductions
+          records:
+            title: Productions
+            sorry_no_results: Uzgunum! Herhangi bir sonuc bulunamadi.
+            no_items_yet: Herhangi bir Productions yok henuz.  Tikla "Yeni Ekle Production" eklemek senin ilk production.
+          production:
+            view_live_html: Bunu canlu production goruntule <br/><em>(yeni bir pencerede acar)</em>
+            edit: Bunu Duzenle production
+            delete: Bunu Sil production sonsuza dek
+      productions:
+        show:
+          other: Diger Productions
+  activerecord:
+    attributes:
+      'refinery/productions/production':
+        title: Title
+        feature_image: Feature Image
+        company: Company
+        production_date: Production Date
+        description: Description

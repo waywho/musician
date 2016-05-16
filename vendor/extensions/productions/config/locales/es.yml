@@ -1,0 +1,32 @@
+es:
+  refinery:
+    plugins:
+      productions:
+        title: Productions
+#        article: masculino/femenino
+    productions:
+      admin:
+        productions:
+          actions:
+            create_new: Crear nuevo production
+            reorder: Reordenar productions
+            reorder_done: Reordenación de productions completada
+          records:
+            title: Productions
+            sorry_no_results: Lo siento, no hay resultados
+            no_items_yet: No hay productions todavía. Pulsa en "Crear nuevo Production" para crear tu primer production.
+          production:
+            view_live_html: Ver este production como abierto al público <br/><em>(abre en ventana nueva)</em>
+            edit: Editar este production
+            delete: Borrar este production para siempre
+      productions:
+        show:
+          other: Otros productions
+  activerecord:
+    attributes:
+      'refinery/productions/production':
+        title: Title
+        feature_image: Feature Image
+        company: Company
+        production_date: Production Date
+        description: Description

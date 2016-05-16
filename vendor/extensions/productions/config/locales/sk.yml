@@ -1,0 +1,31 @@
+sk:
+  refinery:
+    plugins:
+      productions:
+        title: Productions
+    productions:
+      admin:
+        productions:
+          actions:
+            create_new: Pridať Production
+            reorder: Preusporiadať Productions
+            reorder_done: Koniec radenia Productions
+          records:
+            title: Productions
+            sorry_no_results: Ľutujeme, ale neboli nájdené žiadne výsledky.
+            no_items_yet: Nie sú vytvorené žiadne Productions. Kliknite na "Pridať Production" pre pridanie prvého production.
+          production:
+            view_live_html: Zobraziť náhľad production<br/><em>(otvorí sa v novom okne)</em>
+            edit: Upraviť production
+            delete: Zmazať production
+      productions:
+        show:
+          other: Daľšie Productions
+  activerecord:
+    attributes:
+      'refinery/productions/production':
+        title: Title
+        feature_image: Feature Image
+        company: Company
+        production_date: Production Date
+        description: Description

@@ -1,0 +1,51 @@
+<% content_for :body_content_title do %>
+  <%= @production.title %>
+<% end %>
+
+<% content_for :body do %>
+  <section>
+    <h1>Title</h1>
+    <p>
+      <%=raw @production.title %>
+    </p>
+  </section>
+  <section>
+    <h1>Feature Image</h1>
+    <p>
+      <%= image_fu @production.feature_image, nil %>
+    </p>
+  </section>
+  <section>
+    <h1>Company</h1>
+    <p>
+      <%=raw @production.company %>
+    </p>
+  </section>
+  <section>
+    <h1>Production Date</h1>
+    <p>
+      <%=raw @production.production_date %>
+    </p>
+  </section>
+  <section>
+    <h1>Description</h1>
+    <p>
+      <%=raw @production.description %>
+    </p>
+  </section>
+<% end %>
+
+<% content_for :side_body do %>
+  <aside>
+    <h2><%= t('.other') %></h2>
+    <ul id="productions">
+      <% @productions.each do |production| %>
+        <li>
+          <%= link_to production.title, refinery.productions_production_path(production) %>
+        </li>
+      <% end %>
+    </ul>
+  </aside>
+<% end %>
+
+<%= render '/refinery/content_page' %>

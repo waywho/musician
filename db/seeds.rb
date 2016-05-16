@@ -9,5 +9,5 @@
 # Added by Refinery CMS Pages extension
 Refinery::Pages::Engine.load_seed
 
-# Added by Refinery CMS Portfolio Engine
-Refinery::Portfolio::Engine.load_seed
+# Added by Refinery CMS Productions extension
+Refinery::Productions::Engine.load_seed

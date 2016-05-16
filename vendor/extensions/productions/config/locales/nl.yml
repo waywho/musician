@@ -1,0 +1,31 @@
+nl:
+  refinery:
+    plugins:
+      productions:
+        title: Productions
+    productions:
+      admin:
+        productions:
+          actions:
+            create_new: Nieuwe Production toevoegen
+            reorder: De volgorde van de Productions wijzigen
+            reorder_done: Klaar met het wijzingen van de van de Production-volgorde
+          records:
+            title: Productions
+            sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+            no_items_yet: Er zijn nog geen Productions. Druk op 'Nieuwe Production toevoegen' om de eerste toe te voegen.
+          production:
+            view_live_html: Deze production op de website bekijken <br/><em>(opent in een nieuw venster)</em>
+            edit: Bewerk deze production
+            delete: Deze production definitief verwijderen
+      productions:
+        show:
+          other: Andere Productions
+  activerecord:
+    attributes:
+      'refinery/productions/production':
+        title: Title
+        feature_image: Feature Image
+        company: Company
+        production_date: Production Date
+        description: Description

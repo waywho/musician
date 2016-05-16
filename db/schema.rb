@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160515102555) do
+ActiveRecord::Schema.define(version: 20160516102006) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,28 @@ ActiveRecord::Schema.define(version: 20160515102555) do
 
   add_index "refinery_authentication_devise_users", ["id"], name: "index_refinery_authentication_devise_users_on_id", using: :btree
   add_index "refinery_authentication_devise_users", ["slug"], name: "index_refinery_authentication_devise_users_on_slug", using: :btree
+
+  create_table "refinery_image_page_translations", force: :cascade do |t|
+    t.integer  "refinery_image_page_id", null: false
+    t.string   "locale",                 null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.text     "caption"
+  end
+
+  add_index "refinery_image_page_translations", ["locale"], name: "index_refinery_image_page_translations_on_locale", using: :btree
+  add_index "refinery_image_page_translations", ["refinery_image_page_id"], name: "index_186c9a170a0ab319c675aa80880ce155d8f47244", using: :btree
+
+  create_table "refinery_image_pages", force: :cascade do |t|
+    t.integer "image_id"
+    t.integer "page_id"
+    t.integer "position"
+    t.text    "caption"
+    t.string  "page_type", default: "page"
+  end
+
+  add_index "refinery_image_pages", ["image_id"], name: "index_refinery_image_pages_on_image_id", using: :btree
+  add_index "refinery_image_pages", ["page_id"], name: "index_refinery_image_pages_on_page_id", using: :btree
 
   create_table "refinery_image_translations", force: :cascade do |t|
     t.integer  "refinery_image_id", null: false
@@ -148,51 +170,15 @@ ActiveRecord::Schema.define(version: 20160515102555) do
   add_index "refinery_pages", ["parent_id"], name: "index_refinery_pages_on_parent_id", using: :btree
   add_index "refinery_pages", ["rgt"], name: "index_refinery_pages_on_rgt", using: :btree
 
-  create_table "refinery_portfolio_galleries", force: :cascade do |t|
+  create_table "refinery_productions", force: :cascade do |t|
     t.string   "title"
-    t.text     "body"
-    t.integer  "parent_id"
-    t.integer  "lft"
-    t.integer  "rgt"
-    t.integer  "depth"
-    t.string   "slug"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "refinery_portfolio_gallery_translations", force: :cascade do |t|
-    t.integer  "refinery_portfolio_gallery_id", null: false
-    t.string   "locale",                        null: false
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-    t.string   "title"
-    t.text     "body"
-    t.string   "slug"
-  end
-
-  add_index "refinery_portfolio_gallery_translations", ["locale"], name: "index_refinery_portfolio_gallery_translations_on_locale", using: :btree
-  add_index "refinery_portfolio_gallery_translations", ["refinery_portfolio_gallery_id"], name: "index_dacf6685c3221de568049c599f2a69d1c1f9dd25", using: :btree
-
-  create_table "refinery_portfolio_item_translations", force: :cascade do |t|
-    t.integer  "refinery_portfolio_item_id", null: false
-    t.string   "locale",                     null: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.string   "title"
-    t.text     "caption"
-  end
-
-  add_index "refinery_portfolio_item_translations", ["locale"], name: "index_refinery_portfolio_item_translations_on_locale", using: :btree
-  add_index "refinery_portfolio_item_translations", ["refinery_portfolio_item_id"], name: "index_2f72df747b84672dbcc6cb153c8031486c5de521", using: :btree
-
-  create_table "refinery_portfolio_items", force: :cascade do |t|
-    t.string   "title"
-    t.string   "caption"
-    t.integer  "image_id",   null: false
-    t.integer  "gallery_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "feature_image_id"
+    t.string   "company"
+    t.date     "production_date"
+    t.text     "description"
     t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "refinery_resource_translations", force: :cascade do |t|

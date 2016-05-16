@@ -60,4 +60,6 @@ gem 'refinerycms-wymeditor', ['~> 1.0', '>= 1.0.6']
 # The default authentication adapter
 gem 'refinerycms-authentication-devise', '~> 1.0'
 
-gem 'refinerycms-portfolio', github: 'refinery/refinerycms-portfolio', branch: 'master'
+gem 'refinerycms-productions', path: 'vendor/extensions'
+
+gem 'refinerycms-page-images', '~> 3.0.0', git: 'https://github.com/refinery/refinerycms-page-images'

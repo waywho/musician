@@ -1,0 +1,31 @@
+en:
+  refinery:
+    plugins:
+      productions:
+        title: Productions
+    productions:
+      admin:
+        productions:
+          actions:
+            create_new: Add New Production
+            reorder: Reorder Productions
+            reorder_done: Done Reordering Productions
+          records:
+            title: Productions
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Productions yet. Click "Add New Production" to add your first production.
+          production:
+            view_live_html: View this production live <br/><em>(opens in a new window)</em>
+            edit: Edit this production
+            delete: Remove this production forever
+      productions:
+        show:
+          other: Other Productions
+  activerecord:
+    attributes:
+      'refinery/productions/production':
+        title: Title
+        feature_image: Feature Image
+        company: Company
+        production_date: Production Date
+        description: Description
