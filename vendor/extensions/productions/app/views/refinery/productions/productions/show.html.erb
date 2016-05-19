@@ -3,49 +3,137 @@
 <% end %>
 
 <% content_for :body do %>
-  <section>
-    <h1>Title</h1>
-    <p>
-      <%=raw @production.title %>
-    </p>
-  </section>
-  <section>
-    <h1>Feature Image</h1>
-    <p>
-      <%= image_fu @production.feature_image, nil %>
-    </p>
-  </section>
-  <section>
-    <h1>Company</h1>
-    <p>
-      <%=raw @production.company %>
-    </p>
-  </section>
-  <section>
-    <h1>Production Date</h1>
-    <p>
-      <%=raw @production.production_date %>
-    </p>
-  </section>
-  <section>
-    <h1>Description</h1>
-    <p>
-      <%=raw @production.description %>
-    </p>
-  </section>
-<% end %>
+          <p><%= render '/refinery/content_page' %></p>
+  <% end %>
+    <!--=== Breadcrumbs ===-->
+    <div class="breadcrumbs">
+      <div class="container">
+        <h1 class="pull-left"><%= @production.title %></h1>
+        <ul class="pull-right breadcrumb">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="">Productions</a></li>
+          <li class="active"><%= @production.title %></li>
+        </ul>
+      </div><!--/container-->
+    </div><!--/breadcrumbs-->
+    <!--=== End Breadcrumbs ===-->
 
-<% content_for :side_body do %>
-  <aside>
-    <h2><%= t('.other') %></h2>
-    <ul id="productions">
-      <% @productions.each do |production| %>
-        <li>
-          <%= link_to production.title, refinery.productions_production_path(production) %>
-        </li>
-      <% end %>
-    </ul>
-  </aside>
-<% end %>
+    <!--=== Content Part ===-->
+    <div class="container content">
+      <div class="row portfolio-item margin-bottom-50">
+        <!-- Carousel -->
+        <div class="col-md-7">
+          <div class="carousel slide carousel-v1" id="myCarousel">
+            <div class="carousel-inner">
+                <div class="item active">
+                  <%= image_fu @production.feature_image, '757x500#', :class => 'img-responsive' %>
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+              <% @production.images.each do |image| %>
+                <div class="item">
+                  <%= image_fu image, '757x500#', :class => 'img-responsive' %>
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+              <% end %>
+              
+            </div>
 
-<%= render '/refinery/content_page' %>
+            <div class="carousel-arrow">
+              <a data-slide="prev" href="#myCarousel" class="left carousel-control">
+                <i class="fa fa-angle-left"></i>
+              </a>
+              <a data-slide="next" href="#myCarousel" class="right carousel-control">
+                <i class="fa fa-angle-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- End Carousel -->
+
+        <!-- Content Info -->
+        <div class="col-md-5">
+          <h2>Description</h2>
+          <%=raw @production.description %>
+
+
+          <ul class="list-unstyled">
+            <li><i class="fa fa-user color-green"></i> <%=raw @production.company %></li>
+            <li><i class="fa fa-calendar color-green"></i> <%=raw @production.production_date %></li>
+          </ul>
+          <a href="#" class="btn-u btn-u-large">VISIT THE PROJECT</a>
+        </div>
+        <!-- End Content Info -->
+      </div><!--/row-->
+
+      <div class="tag-box tag-box-v2">
+        <p>Great quote about great production</p>
+      </div>
+
+      <div class="margin-bottom-20 clearfix"></div>
+      
+
+
+    <!-- Three Columns -->
+    <div class="container content">
+      <div class="text-center margin-bottom-50">
+        <h2 class="title-v2 title-center">Gallery</h2>
+      </div>
+
+      <div class="row  margin-bottom-30">
+        <% @production.images.each do |image| %>
+        <div class="col-sm-4 sm-margin-bottom-30">
+          <%= link_to image.url, :class => 'fancybox img-hover-v1', :"rel" => 'gallery1' do %> 
+            <span><%= image_fu image, '400x264#', :class => 'img-responsive' %></span>
+          <% end %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <!-- End Three Columns -->
+
+    <!-- Recent Works -->
+    <% content_for :side_body do %>
+      <aside>
+        <div class="owl-carousel-v1 owl-work-v1 margin-bottom-40">
+          <div class="headline"><h2 class="pull-left">Recent Works<%= t('.other') %></h2>
+            <div class="owl-navigation">
+              <div class="customNavigation">
+                <a class="owl-btn prev-v2"><i class="fa fa-angle-left"></i></a>
+                <a class="owl-btn next-v2"><i class="fa fa-angle-right"></i></a>
+              </div>
+            </div><!--/navigation-->
+          </div>
+
+          <div class="owl-recent-works-v1">
+            <% @productions.each do |production| %>
+              <div class="item">
+                <%= link_to refinery.productions_production_path(production) do %>
+                  <em class="overflow-hidden">
+                    <%= image_fu production.feature_image, '275x173.812#', :class=> 'img-responsive' %>
+                  </em>
+                  <span>
+                    <strong><%= production.title %></strong>
+                    <i><%= production.company %></i>
+                  </span>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </aside>
+    <% end %>
+      <!-- End Recent Works -->
+    </div><!--/container-->
+    <!--=== End Content Part ===-->
+
+
+
+  <script type="text/javascript">
+    jQuery(document).ready(function() {
+      App.init();
+      FancyBox.initFancybox();
+      StyleSwitcher.initStyleSwitcher();
+    });
+  </script>

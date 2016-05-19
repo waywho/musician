@@ -17,6 +17,7 @@
                :toggle_image_display => false -%>
   </div>
 
+
   <div class='field'>
     <%= f.label :company -%>
     <%= f.text_field :company -%>
@@ -32,6 +33,10 @@
                 :f => f,
                 :fields => [:description],
                 :object => "productions/production" -%>
+  </div>
+  <div class='field'>
+    <%= render :partial => '/refinery/productions/admin/productions/tabs/images', :locals => {:f => f, 
+    :tabbed_fields => [:image_pages, :images]} %>
   </div>
 
   <%= render '/refinery/admin/form_actions', :f => f,
