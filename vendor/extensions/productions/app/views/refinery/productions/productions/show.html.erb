@@ -83,7 +83,7 @@
 
       <div class="row  margin-bottom-30">
         <% @production.images.each do |image| %>
-        <div class="col-sm-4 sm-margin-bottom-30">
+        <div class="col-sm-4 sm-margin-bottom-30 thumb">
           <%= link_to image.url, :class => 'fancybox img-hover-v1', :"rel" => 'gallery1' do %> 
             <span><%= image_fu image, '400x264#', :class => 'img-responsive' %></span>
           <% end %>
