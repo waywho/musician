@@ -53,6 +53,9 @@ GIT
 PATH
   remote: vendor/extensions
   specs:
+    refinerycms-news_items (1.0)
+      acts_as_indexed (~> 0.8.0)
+      refinerycms-core (~> 3.0.3)
     refinerycms-productions (1.0)
       acts_as_indexed (~> 0.8.0)
       refinerycms-core (~> 3.0.3)
@@ -283,6 +286,7 @@ DEPENDENCIES
   refinerycms!
   refinerycms-acts-as-indexed (~> 2.0, >= 2.0.0)
   refinerycms-authentication-devise (~> 1.0)
+  refinerycms-news_items!
   refinerycms-page-images (~> 3.0.0)!
   refinerycms-productions!
   refinerycms-wymeditor (~> 1.0, >= 1.0.6)

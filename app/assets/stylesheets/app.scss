@@ -56,8 +56,8 @@ h1, h2, h3, h4, h5, h6 {
 	color: #555;
 	margin-top: 5px;
 	text-shadow: none;
-	font-weight: normal;
-	font-family: "Open Sans", Arial, sans-serif;
+	font-weight: 600;
+	font-family: Raleway, "Helvetica Neue", Helvetica, "Open Sans", Arial, sans-serif;
 }
 
 h1 i, h2 i, h3 i, h4 i, h5 i, h6 i {
@@ -192,7 +192,7 @@ h1 i, h2 i, h3 i, h4 i, h5 i, h6 i {
 	margin-bottom: 15px;
 	padding-bottom: 20px;
 	text-transform: uppercase;
-	font-family: "Open Sans", Arial, sans-serif;
+	font-family: Raleway, "Helvetica Neue", Helvetica, "Open Sans", Arial, sans-serif;
 }
 
 .title-v1 h1:after,
@@ -306,7 +306,7 @@ h3.title-v3-xs {
 .title-v4 {
 	font-size: 18px;
 	margin: 0 0 20px;
-	font-weight: bold;
+	font-weight: 600;
 	position: relative;
 	text-transform: uppercase;
 	border-bottom: 3px solid #333;
@@ -456,7 +456,7 @@ h3.title-v3-xs {
 .headline-v2 h2 {
 	margin: 3px 0;
 	font-size: 20px;
-	font-weight: 200;
+	font-weight: 600;
 }
 
 /*Heading Sizes
@@ -1773,7 +1773,7 @@ blockquote.hero.hero-default p,
 blockquote.hero.hero-default h2,
 blockquote.hero.hero-default small {
 	color: #fff;
-	font-weight: 200;
+	font-weight: 600;
 }
 
 /*Lists
