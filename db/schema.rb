@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160516102006) do
+ActiveRecord::Schema.define(version: 20160521083341) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -105,6 +105,19 @@ ActiveRecord::Schema.define(version: 20160516102006) do
     t.string   "image_alt"
   end
 
+  create_table "refinery_news_items", force: :cascade do |t|
+    t.string   "headline"
+    t.integer  "photo_id"
+    t.text     "content"
+    t.datetime "publish_on"
+    t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "slug"
+  end
+
+  add_index "refinery_news_items", ["slug"], name: "index_refinery_news_items_on_slug", using: :btree
+
   create_table "refinery_page_part_translations", force: :cascade do |t|
     t.integer  "refinery_page_part_id", null: false
     t.string   "locale",                null: false
@@ -179,7 +192,10 @@ ActiveRecord::Schema.define(version: 20160516102006) do
     t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
+
+  add_index "refinery_productions", ["slug"], name: "index_refinery_productions_on_slug", using: :btree
 
   create_table "refinery_resource_translations", force: :cascade do |t|
     t.integer  "refinery_resource_id", null: false

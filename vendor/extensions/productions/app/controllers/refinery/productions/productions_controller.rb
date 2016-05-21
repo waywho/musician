@@ -12,7 +12,7 @@ module Refinery
       end
 
       def show
-        @production = Production.find(params[:id])
+        @production = Production.friendly.find(params[:id])
 
         # you can use meta fields from your model instead (e.g. browser_title)
         # by swapping @page for @production in the line below:

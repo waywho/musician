@@ -1,56 +1,138 @@
-<%= render '/refinery/content_page' %>
-
-
-<!--=== Cube-Portfdlio ===-->
-		<div class="cube-portfolio margin-bottom-20">
-			<div class="content-xs">
-				<div id="filters-container" class="cbp-l-filters-text content-xs">
-					<div data-filter="*" class="cbp-filter-item-active cbp-filter-item"> All </div> |
-					<div data-filter=".identity" class="cbp-filter-item"> Identity </div> |
-					<div data-filter=".web-design" class="cbp-filter-item"> Web Design </div> |
-					<div data-filter=".graphic" class="cbp-filter-item"> Graphic </div> |
-					<div data-filter=".logos" class="cbp-filter-item"> Logo </div>
-				</div><!--/end Filters Container-->
-			</div>
-
-			<div id="grid-container" class="cbp-l-grid-agency">
-				<div class="cbp-item graphic">
-					<div class="cbp-caption" >
-						<div class="cbp-caption-defaultWrap">
-							<img src="assets/img/main/img12.jpg" alt="">
-						</div>
-						<div class="cbp-caption-activeWrap">
-							<div class="cbp-l-caption-alignCenter">
-								<div class="cbp-l-caption-body">
-									<ul class="link-captions">
-										<li><a href="portfolio_single_item.html"><i class="rounded-x fa fa-link"></i></a></li>
-										<li><a href="assets/img/main/img12.jpg" class="cbp-lightbox" data-title="Design Object"><i class="rounded-x fa fa-search"></i></a></li>
-									</ul>
-									<div class="cbp-l-grid-agency-title">Design Object 01</div>
-									<div class="cbp-l-grid-agency-desc">Web Design</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="cbp-item web-design logos">
-					<div class="cbp-caption">
-						<div class="cbp-caption-defaultWrap">
-							<img src="assets/img/main/img18.jpg" alt="">
-						</div>
-						<div class="cbp-caption-activeWrap">
-							<div class="cbp-l-caption-alignCenter">
-								<div class="cbp-l-caption-body">
-									<ul class="link-captions">
-										<li><a href="portfolio_single_item.html"><i class="rounded-x fa fa-link"></i></a></li>
-										<li><a href="assets/img/main/img18.jpg" class="cbp-lightbox" data-title="Design Object"><i class="rounded-x fa fa-search"></i></a></li>
-									</ul>
-									<div class="cbp-l-grid-agency-title">Design Object 02</div>
-									<div class="cbp-l-grid-agency-desc">Web Design</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+<div class="col-xs-12 col-sm-4">
+	<h2 class="homepage-col">News</h2>
+	<% @news_items.each do |news| %>
+		<div class="item">
+			<div class="headline">
+				<%= news.headline %>
 			</div>
 		</div>
+	<% end %>
+</div>
+
+<div class="col-xs-12 col-sm-8">
+	<h2 class="homepage-col">Recent Productions</h2>
+<!--=== Cube-Portfdlio ===-->
+		<div class="cube-portfolio margin-bottom-20">
+
+			<div id="grid-container" class="cbp-l-grid-agency">
+				<% @productions.each do |production| %>
+					<div class="cbp-item production">
+						<div class="cbp-caption" >
+							<div class="cbp-caption-defaultWrap">
+								<%= image_fu production.feature_image, '757x500#' %>
+							</div>
+							<div class="cbp-caption-activeWrap">
+								<div class="cbp-l-caption-alignCenter">
+									<div class="cbp-l-caption-body">
+										<ul class="link-captions">
+											<li><a href="portfolio_single_item.html"><i class="rounded-x fa fa-link"></i></a></li>
+											<li><%= link_to refinery.productions_production_path(production), :"datat-title" => production.title do %>
+												<i class="rounded-x fa fa-search"></i><% end %></li>
+										</ul>
+										<div class="cbp-l-grid-agency-title"><%= production.title %></div>
+										<div class="cbp-l-grid-agency-desc"><%= production.company %></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				<% end %>
+			</div>
+		</div>
+</div>
+
+<script>
+ $(document).ready(function () {
+ 	var gridContainer = $('#grid-container');
+ 	var filtersContainer = $('#filters-container');
+    var wrap;
+    var filtersCallback;
+
+    /*********************************
+        init cubeportfolio
+     *********************************/
+    gridContainer.cubeportfolio({
+        layoutMode: 'grid',
+        rewindNav: true,
+        scrollByPage: false,
+        defaultFilter: '*',
+        animationType: 'slideLeft',
+        gapHorizontal: 20,
+        gapVertical: 20,
+        gridAdjustment: 'responsive',
+        mediaQueries: [{
+            width: 800,
+            cols: 2
+        }, {
+            width: 500,
+            cols: 2
+        }, {
+            width: 320,
+            cols: 1
+        }],
+        caption: 'zoom',
+        displayType: 'lazyLoading',
+        displayTypeSpeed: 100
+    });
+
+    /*********************************
+        add listener for filters
+     *********************************/
+    if (filtersContainer.hasClass('cbp-l-filters-dropdown')) {
+        wrap = filtersContainer.find('.cbp-l-filters-dropdownWrap');
+
+        wrap.on({
+            'mouseover.cbp': function() {
+                wrap.addClass('cbp-l-filters-dropdownWrap-open');
+            },
+            'mouseleave.cbp': function() {
+                wrap.removeClass('cbp-l-filters-dropdownWrap-open');
+            }
+        });
+
+        filtersCallback = function(me) {
+            wrap.find('.cbp-filter-item').removeClass('cbp-filter-item-active');
+            wrap.find('.cbp-l-filters-dropdownHeader').text(me.text());
+            me.addClass('cbp-filter-item-active');
+            wrap.trigger('mouseleave.cbp');
+        };
+    } else {
+        filtersCallback = function(me) {
+            me.addClass('cbp-filter-item-active').siblings().removeClass('cbp-filter-item-active');
+        };
+    }
+
+    filtersContainer.on('click.cbp', '.cbp-filter-item', function() {
+        var me = $(this);
+
+        if (me.hasClass('cbp-filter-item-active')) {
+            return;
+        }
+
+        // get cubeportfolio data and check if is still animating (reposition) the items.
+        if (!$.data(gridContainer[0], 'cubeportfolio').isAnimating) {
+            filtersCallback.call(null, me);
+        }
+
+        // filter the items
+        gridContainer.cubeportfolio('filter', me.data('filter'), function() {});
+    });
+
+
+    /*********************************
+        activate counter for filters
+     *********************************/
+    gridContainer.cubeportfolio('showCounter', filtersContainer.find('.cbp-filter-item'), function() {
+        // read from url and change filter active
+        var match = /#cbpf=(.*?)([#|?&]|$)/gi.exec(location.href),
+            item;
+        if (match !== null) {
+            item = filtersContainer.find('.cbp-filter-item').filter('[data-filter="' + match[1] + '"]');
+            if (item.length) {
+                filtersCallback.call(null, item);
+            }
+        }
+    });
+
+ })
+</script>

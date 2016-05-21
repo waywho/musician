@@ -10,6 +10,9 @@ module Refinery
 
       has_many :image_pages, as: :page
 
+      extend FriendlyId
+      friendly_id :title, :use => [:slugged]
+
       # To enable admin searching, add acts_as_indexed on searchable fields, for example:
       #
       #   acts_as_indexed :fields => [:title]
