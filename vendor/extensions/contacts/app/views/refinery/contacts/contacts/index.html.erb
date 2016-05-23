@@ -1,0 +1,12 @@
+<% content_for :body do %>
+
+<% end %>
+
+<div class="container">
+	<%= simple_form_for @contact, url: refinery.contacts_send_contact_path, method: :post do |f| %>
+		<%= f.input :first_name %>
+		<%= f.input :surname %>
+		<%= f.input :message %>
+		<%= f.button :submit, 'Send', :class => 'btn btn-success' %>
+	<% end %>
+</div>

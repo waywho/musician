@@ -14,3 +14,6 @@ Refinery::Productions::Engine.load_seed
 
 # Added by Refinery CMS NewsItems extension
 Refinery::NewsItems::Engine.load_seed
+
+# Added by Refinery CMS Contacts extension
+Refinery::Contacts::Engine.load_seed
