@@ -1,52 +1,100 @@
-<div class="col-xs-12 col-sm-4">
-	<h2 class="homepage-col">News</h2>
-	<% @news_items.each do |news| %>
-		<div class="item">
-			<div class="headline">
-				<%= news.headline %>
-			</div>
-		</div>
+<div id = "hero-grid-container">
+	<div class="cbp-item">
+		<%= image_fu @feature_production.feature_image, '760x380#', :class => 'img-responsive' %>
+	</div>
+
+	<% @feature_production.images.each do |image| %>
+	<div class="cbp-item">
+		<%= image_fu image, cycle("380x380#", "760x380#", "380x760#"), :class => 'img-responsive' %>
+	</div>
 	<% end %>
 </div>
 
-<div class="col-xs-12 col-sm-8">
-	<h2 class="homepage-col">Recent Productions</h2>
-<!--=== Cube-Portfdlio ===-->
-		<div class="cube-portfolio margin-bottom-20">
+<div id="hero-caption">
+	<span class="heading">Featuring: <%= @feature_production.title %></span><br />
+	<i><%= @feature_production.company %></i><br />
+	<%= @feature_production.production_date %>
+</div>
+<div class="container">
+	<div class="col-xs-12 col-sm-4">
+		<div class="homepage-col-header-container">
+			<h2 class="homepage-col">News</h2>
+		</div>
+		<% @news_items.each do |news| %>
+			<div class="item">
+				<div class="headline">
+					<%= news.headline %>
+				</div>
+			</div>
+		<% end %>
+	</div>
 
-			<div id="grid-container" class="cbp-l-grid-agency">
-				<% @productions.each do |production| %>
-					<div class="cbp-item production">
-						<div class="cbp-caption" >
-							<div class="cbp-caption-defaultWrap">
-								<%= image_fu production.feature_image, '757x500#' %>
-							</div>
-							<div class="cbp-caption-activeWrap">
-								<div class="cbp-l-caption-alignCenter">
-									<div class="cbp-l-caption-body">
-										<ul class="link-captions">
-											<li><a href="portfolio_single_item.html"><i class="rounded-x fa fa-link"></i></a></li>
-											<li><%= link_to refinery.productions_production_path(production), :"datat-title" => production.title do %>
-												<i class="rounded-x fa fa-search"></i><% end %></li>
-										</ul>
-										<div class="cbp-l-grid-agency-title"><%= production.title %></div>
-										<div class="cbp-l-grid-agency-desc"><%= production.company %></div>
+
+
+	<div class="col-xs-12 col-sm-8">
+		<div class="homepage-col-header-container">
+			<h2 class="homepage-col">Recent Productions</h2>
+		</div>
+	<!--=== Cube-Portfdlio ===-->
+			<div class="cube-portfolio margin-bottom-20">
+
+				<div id="grid-container" class="cbp-l-grid-agency">
+					<% @productions.each do |production| %>
+						<div class="cbp-item production">
+							<div class="cbp-caption" >
+								<div class="cbp-caption-defaultWrap">
+									<%= image_fu production.feature_image, '757x500#' %>
+								</div>
+								<div class="cbp-caption-activeWrap">
+									<div class="cbp-l-caption-alignCenter">
+										<div class="cbp-l-caption-body">
+											<ul class="link-captions">
+												<li><a href="portfolio_single_item.html"><i class="rounded-x fa fa-link"></i></a></li>
+												<li><%= link_to refinery.productions_production_path(production), :"datat-title" => production.title do %>
+													<i class="rounded-x fa fa-search"></i><% end %></li>
+											</ul>
+											<div class="cbp-l-grid-agency-title"><%= production.title %></div>
+											<div class="cbp-l-grid-agency-desc"><%= production.company %></div>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-				<% end %>
+					<% end %>
+				</div>
 			</div>
-		</div>
+	</div>
 </div>
 
 <script>
  $(document).ready(function () {
  	var gridContainer = $('#grid-container');
+ 	var heroGrid = $('#hero-grid-container');
+ 	var heroGrid2 = $('#hero-grid-container-secondary');
  	var filtersContainer = $('#filters-container');
     var wrap;
     var filtersCallback;
+
+    heroGrid.cubeportfolio ({
+    	layoutMode: 'mosaic',
+    	sortToPreventGaps: 'true',
+  		gapHorizontal: 0,
+  		gapVertical: 0,
+  		caption: "",
+  		mediaQueries: [{
+  			width: 1200,
+  			cols: 5
+  		}, {
+  			width: 800, 
+  			cols: 4
+  		}, {
+  			width: 500,
+  			cols: 3
+  		}, {
+  			width: 320,
+  			cols: 2
+  		}]
+    });
 
     /*********************************
         init cubeportfolio

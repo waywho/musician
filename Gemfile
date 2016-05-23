@@ -24,6 +24,12 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'font-awesome-rails'
+
+gem 'simple_form'
+
+gem 'figaro'
+
+# gem 'masonry-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -65,3 +71,4 @@ gem 'refinerycms-productions', path: 'vendor/extensions'
 
 gem 'refinerycms-page-images', '~> 3.0.0', git: 'https://github.com/refinery/refinerycms-page-images'
 gem 'refinerycms-news_items', path: 'vendor/extensions'
+gem 'refinerycms-contacts', path: 'vendor/extensions'

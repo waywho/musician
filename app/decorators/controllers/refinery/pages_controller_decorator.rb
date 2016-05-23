@@ -2,6 +2,7 @@ Refinery::PagesController.class_eval do
 	before_action :find_all_unhidden_pages, :only => [:home]
 	before_action :find_recent_news_item, :only => [:home]
 	before_action :find_recent_productions, :only => [:home]
+	before_action :find_feature_production, :only => [:home]
 
 	protected
 	def find_all_unhidden_pages
@@ -14,5 +15,9 @@ Refinery::PagesController.class_eval do
 
 	def find_recent_productions
 		@productions = Refinery::Productions::Production.limit(6)
+	end
+
+	def find_feature_production
+		@feature_production = Refinery::Productions::Production.where(:feature_production => true).first
 	end
 end
