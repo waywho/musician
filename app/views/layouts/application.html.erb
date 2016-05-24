@@ -6,13 +6,19 @@
     <%= render "/refinery/javascripts" %>
   </head>
   <body id="<%= canonical_id @page %>" class="header-fixed header-fixed-space">
-    <%= site_bar -%>
-
+      <%= site_bar -%>
     <div id="page_container" class="wrapper">
-      <header id="header" class="header-v6 header-classic-white header-sticky">
+      <header id="header" class="header-v6 header-classic-white header-sticky" style=<%= "top:53px;" if site_bar.present? %>>
         <%= render "/refinery/header" -%>
       </header>
       <section id="page">
+      <% if notice.present? %>
+      <p class="alert alert-info"><%= notice %></p>
+      <% end %>
+
+      <% if alert.present? || flash[:error] %>
+      <p class="alert alert-danger"><%= alert || flash[:error] %></p>
+      <% end %>
         <%= yield %>
       </section>
       <footer class="footer-v1">

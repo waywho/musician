@@ -36,14 +36,13 @@
   <br class ='clr' />
   <br />
   <div class='field'>
-    <%= render '/refinery/admin/wysiwyg',
-                :f => f,
-                :fields => [:description],
-                :object => "productions/production" -%>
+    <%= render :partial => '/refinery/admin/tabbed_fields',
+           :locals => { :f => f,
+                        :tabbed_fields => [:description, :reviews] } %>
   </div>
+
   <div class='field'>
-    <%= render :partial => '/refinery/productions/admin/productions/tabs/images', :locals => {:f => f, 
-    :tabbed_fields => [:image_pages, :images]} %>
+    <%= render :partial => '/refinery/productions/admin/productions/tabs/images', :locals => {:f => f} %>
   </div>
 
   <%= render '/refinery/admin/form_actions', :f => f,

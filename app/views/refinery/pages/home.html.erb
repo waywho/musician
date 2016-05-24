@@ -10,10 +10,12 @@
 	<% end %>
 </div>
 
-<div id="hero-caption">
-	<span class="heading">Featuring: <%= @feature_production.title %></span><br />
-	<i><%= @feature_production.company %></i><br />
-	<%= @feature_production.production_date %>
+<div id="hero-caption-container">
+    <div id="hero-caption">
+    	<span class="heading">Featuring: <%= @feature_production.title %></span><br />
+    	<i><%= @feature_production.company %></i><br />
+    	<%= @feature_production.production_date %>
+    </div>
 </div>
 <div class="container">
 	<div class="col-xs-12 col-sm-4">

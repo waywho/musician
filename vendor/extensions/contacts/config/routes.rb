@@ -4,6 +4,7 @@ Refinery::Core::Engine.routes.draw do
   namespace :contacts do
     resources :contacts, :path => '', :only => [:index, :show]
     post :send_contact, to: 'contacts#send_contact'
+    get :contact_sent, to: "contacts#contact_sent"
   end
 
   # Admin routes

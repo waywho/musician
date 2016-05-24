@@ -21,9 +21,24 @@ module Refinery
       end
 
       def send_contact
+        Contact.create(contact_params)
+
+        ContactMailer.contact_admin(contact_params).deliver_now
+        ContactMailer.copy_sender(contact_params).deliver_now
+
+        flash[:notice] = "Thank you! Your message is sent. We will be in touch as soon as possible."
+        redirect_to refinery.contacts_contacts_path
+      end
+
+      def contact_sent
+        @contact = Contact.new
       end
 
     protected
+
+      def contact_params
+        params.require(:contact).permit(:first_name, :surname, :email, :message)
+      end
 
       def find_all_contacts
         @contacts = Contact.order('position ASC')

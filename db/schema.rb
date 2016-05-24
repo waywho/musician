@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160523085419) do
+ActiveRecord::Schema.define(version: 20160524042220) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -204,6 +204,7 @@ ActiveRecord::Schema.define(version: 20160523085419) do
     t.datetime "updated_at"
     t.string   "slug"
     t.boolean  "feature_production"
+    t.text     "reviews"
   end
 
   add_index "refinery_productions", ["slug"], name: "index_refinery_productions_on_slug", using: :btree
