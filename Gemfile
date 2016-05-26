@@ -29,6 +29,11 @@ gem 'simple_form'
 
 gem 'figaro'
 
+group :production do
+	gem 'fog'
+end
+
+
 # gem 'masonry-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

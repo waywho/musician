@@ -59,19 +59,17 @@
 
 
           <ul class="list-unstyled">
-            <li><i class="fa fa-user color-green"></i> <%=raw @production.company %></li>
-            <li><i class="fa fa-calendar color-green"></i> <%=raw @production.production_date %></li>
+            <li><i class="fa fa-university color-green"></i> <%=raw @production.company %></li>
+            <li><i class="fa fa-calendar color-green"></i> <%=raw @production.production_date.strftime("%Y") %></li>
           </ul>
-          <a href="#" class="btn-u btn-u-large">VISIT THE PROJECT</a>
         </div>
         <!-- End Content Info -->
       </div><!--/row-->
-
+      <% if @production.reviews.present? %>
       <div class="tag-box tag-box-v2">
         <p><%=raw @production.reviews %></p>
       </div>
-
-      <div class="margin-bottom-20 clearfix"></div>
+      <% end %>
       
 
 

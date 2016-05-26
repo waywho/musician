@@ -1,33 +1,37 @@
-<div id = "hero-grid-container">
-	<div class="cbp-item">
-		<%= image_fu @feature_production.feature_image, '760x380#', :class => 'img-responsive' %>
-	</div>
+<%= link_to refinery.productions_production_path(@feature_production) do %>
+    <div id = "hero-grid-container">
+    	<div class="cbp-item">
+    		<%= image_fu @feature_production.feature_image, '760x380#', :class => 'img-responsive' %>
+    	</div>
 
-	<% @feature_production.images.each do |image| %>
-	<div class="cbp-item">
-		<%= image_fu image, cycle("380x380#", "760x380#", "380x760#"), :class => 'img-responsive' %>
-	</div>
-	<% end %>
-</div>
-
-<div id="hero-caption-container">
-    <div id="hero-caption">
-    	<span class="heading">Featuring: <%= @feature_production.title %></span><br />
-    	<i><%= @feature_production.company %></i><br />
-    	<%= @feature_production.production_date %>
+    	<% @feature_production.images.each do |image| %>
+    	<div class="cbp-item">
+    		<%= image_fu image, cycle("380x380#", "760x380#", "380x760#"), :class => 'img-responsive' %>
+    	</div>
+    	<% end %>
     </div>
-</div>
+
+    <div id="hero-caption-container">
+        <div id="hero-caption">
+        	<span class="heading">Featuring: <%= @feature_production.title %></span><br />
+        	<i><%= @feature_production.company %></i>, 
+        	<%= @feature_production.production_date.strftime("%Y") %>
+        </div>
+    </div>
+<% end %>
 <div class="container">
 	<div class="col-xs-12 col-sm-4">
 		<div class="homepage-col-header-container">
 			<h2 class="homepage-col">News</h2>
 		</div>
 		<% @news_items.each do |news| %>
-			<div class="item">
-				<div class="headline">
-					<%= news.headline %>
-				</div>
-			</div>
+            <%= link_to refinery.news_items_news_item_path(news) do %>
+    			<div class="item">
+    				<div class="headline">
+    					<%= news.headline %>
+    				</div>
+    			</div>
+            <% end %>
 		<% end %>
 	</div>
 

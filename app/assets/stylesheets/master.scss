@@ -23,7 +23,7 @@
 
 #hero-caption-container {
 	position: absolute;
-	top: 526px;
+	top: 576px;
 	left: 0;
 	padding-left: 50px;
 	z-index: 2;
@@ -31,7 +31,7 @@
 	font-size: 30px;
 	width: 100%;
 	background-color: rgba(128, 128, 128, 0.5);
-	height: 194px;
+	height: 145px;
 }
 
 #hero-caption {
@@ -49,27 +49,46 @@
 }
 
 #contact_message {
-	height: 500px;
+	height: 400px;
 }
 
 .text-center {
 	text-align: center;
 }
-/*
+
 @media (min-width: 1200px) {
-	.container {
+/*	.container {
 		width: 1200px;
-	}
+	}*/
 }
 
-@media (min-width: 900px) {
-	.container {
+@media (min-width: 800px) {
+/*	.container {
 		width: 900px;
-	}
+	}*/
 }
 
-@media (min-width: 740px) {
-	.container {
+@media (min-width: 500px) {
+/*	.container {
 		width: 740px;
+	}*/
+/*	#hero-grid-container {
+		height: 526px !important;
 	}
-}*/
+
+	#hero-caption-container {
+		position: 10px;
+	}*/
+}
+
+@media (min-width: 320px) {
+/*	.container {
+		width: 740px;
+	}*/
+/*	#hero-grid-container {
+		height: 426px !important;
+	}
+	#hero-caption-container {
+		position: 10px;
+	}*/
+}
