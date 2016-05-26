@@ -29,9 +29,9 @@ gem 'simple_form'
 
 gem 'figaro'
 
-
-gem 'fog'
-
+group :production do
+	gem 'fog'
+end
 
 
 # gem 'masonry-rails'
