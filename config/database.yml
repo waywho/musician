@@ -87,5 +87,6 @@ test:
 production:
   <<: *default
   database: musician_production
-  username: musician
-  password: <%= ENV['MUSICIAN_DATABASE_PASSWORD'] %>
+  username: postgres
+  password: password
+  host: localhost
