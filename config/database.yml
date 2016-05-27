@@ -87,7 +87,6 @@ test:
 production:
   <<: *default
   database: <%= Rails.application.engine_name.gsub(/_application/,'').downcase %>_production
-  pool: 5
   username: postgres
-  password: postgres
+  password: password
   host: localhost
