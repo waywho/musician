@@ -86,5 +86,9 @@ test:
 #
 production:
   <<: *default
-  database: musician_production
+  database: <%= Rails.application.engine_name.gsub(/_application/,'').downcase %>_production
+  pool: 5
+  username: postgres
+  password: postgres
+  min_messages: warning
 
