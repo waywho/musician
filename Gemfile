@@ -27,12 +27,11 @@ gem 'font-awesome-rails'
 
 gem 'simple_form'
 
-gem 'dragonfly-s3_data_store'
-
 gem 'figaro'
 
 group :production do
 	gem 'fog-aws'
+	gem 'dragonfly-s3_data_store'
 end
 
 
