@@ -1,0 +1,71 @@
+/* line 1, /home/vagrant/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/bundler/gems/refinerycms-page-images-3751e271511c/app/assets/stylesheets/refinery/page-image-picker.scss */
+#page_images {
+  margin: 0;
+  padding: 0;
+  width: 280px;
+  width: 100%;
+}
+/* line 6, /home/vagrant/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/bundler/gems/refinerycms-page-images-3751e271511c/app/assets/stylesheets/refinery/page-image-picker.scss */
+#page_images li {
+  position: relative;
+  list-style: none;
+  float: left;
+  margin: 10px 20px 20px 0;
+}
+/* line 11, /home/vagrant/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/bundler/gems/refinerycms-page-images-3751e271511c/app/assets/stylesheets/refinery/page-image-picker.scss */
+#page_images li * {
+  cursor: move;
+}
+/* line 14, /home/vagrant/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/bundler/gems/refinerycms-page-images-3751e271511c/app/assets/stylesheets/refinery/page-image-picker.scss */
+#page_images li.odd {
+  margin-right: 18px;
+}
+/* line 17, /home/vagrant/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/bundler/gems/refinerycms-page-images-3751e271511c/app/assets/stylesheets/refinery/page-image-picker.scss */
+#page_images li .image_actions {
+  background: white;
+  position: absolute;
+  padding: 3px;
+  left: 0;
+  top: 0;
+  width: 135px;
+}
+/* line 24, /home/vagrant/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/bundler/gems/refinerycms-page-images-3751e271511c/app/assets/stylesheets/refinery/page-image-picker.scss */
+#page_images li .image_actions * {
+  cursor: pointer;
+}
+/* line 27, /home/vagrant/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/bundler/gems/refinerycms-page-images-3751e271511c/app/assets/stylesheets/refinery/page-image-picker.scss */
+#page_images li .image_actions.no_captions {
+  background: transparent;
+}
+/* line 32, /home/vagrant/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/bundler/gems/refinerycms-page-images-3751e271511c/app/assets/stylesheets/refinery/page-image-picker.scss */
+#page_images > li .image_actions img.caption {
+  position: absolute;
+  right: 3px;
+  top: 3px;
+}
+
+/* line 40, /home/vagrant/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/bundler/gems/refinerycms-page-images-3751e271511c/app/assets/stylesheets/refinery/page-image-picker.scss */
+#content ul.ui-sortable li {
+  border: 0;
+  background: none !important;
+}
+/* line 44, /home/vagrant/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/bundler/gems/refinerycms-page-images-3751e271511c/app/assets/stylesheets/refinery/page-image-picker.scss */
+#content #page_images.ui-sortable li.placeholder {
+  width: 135px;
+  height: 135px;
+}
+
+/* line 50, /home/vagrant/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/bundler/gems/refinerycms-page-images-3751e271511c/app/assets/stylesheets/refinery/page-image-picker.scss */
+a#add_image_link {
+  margin-top: 0;
+  line-height: 29px;
+  padding-left: 20px;
+  display: inline;
+  border-bottom: 0;
+  background: url(/assets/refinery/icons/add-d9cef296003490d54265e12e9e8eede27e5f9ba71253b8b7ab7d13a4bd60fc1f.png) no-repeat 0px 6px;
+}
+
+/* line 60, /home/vagrant/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/bundler/gems/refinerycms-page-images-3751e271511c/app/assets/stylesheets/refinery/page-image-picker.scss */
+.page-images-caption-modal.plain textarea {
+  width: 400px;
+}
