@@ -87,6 +87,3 @@ test:
 production:
   <<: *default
   database: musician_production
-  username: postgres
-  password: password
-  host: localhost
