@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160524042220) do
+ActiveRecord::Schema.define(version: 20160528083831) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -185,6 +185,7 @@ ActiveRecord::Schema.define(version: 20160524042220) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "feature_image_id"
+    t.boolean  "show_in_footer",      default: false
   end
 
   add_index "refinery_pages", ["depth"], name: "index_refinery_pages_on_depth", using: :btree
