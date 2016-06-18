@@ -45,6 +45,7 @@
     <%= render :partial => '/refinery/productions/admin/productions/tabs/images', :locals => {:f => f} %>
   </div>
 
+
   <%= render '/refinery/admin/form_actions', :f => f,
              :continue_editing => false,
              :delete_title => t('delete', :scope => 'refinery.productions.admin.productions.production'),
@@ -53,8 +54,29 @@
 
 <% content_for :javascripts do -%>
   <script>
+      function append_image(images) {
+        console.log(images);
+        $.each(images, function(index, image) {
+          // image_id = $(image).attr('id').replace("image_", "");
+          // image_src = $(image).attr('data-medium');
+          // new_image = $('li.image_field.blank:first').clone();
+
+          // new_image.find('.attributes input.image_id').val(image_id);
+
+          // console.log(new_image.find('.thumb'));
+
+          // $('<img/>').attr({src: image_src}).appendTo(new_image.find('.thumb'));
+
+
+          // new_image.attr('id', "image_#{image_id}").appendTo("#page_images").removeClass('blank')
+
+          image_added(image);
+        })
+      }
     $(document).ready(function(){
       page_options.init(false, '', '');
+
+
     });
   </script>
 <% end -%>
