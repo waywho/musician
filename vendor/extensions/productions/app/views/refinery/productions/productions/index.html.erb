@@ -16,12 +16,8 @@
 							<div class="cbp-l-caption-alignCenter">
 								<div class="cbp-l-caption-body">
 									<ul class="link-captions no-bottom-space">
-										<li><%= link_to refinery.productions_production_path(production), :class => 'fancybox img-hover-v1', :"rel" => 'gallery1' do %>
+										<li><%= link_to refinery.productions_production_path(production) do %>
 												<i class="rounded-x fa fa-link"></i>
-											<% end %>
-										</li>
-										<li><%= link_to production.feature_image.url do %>
-												<i class="rounded-x fa fa-search"></i>
 											<% end %>
 										</li>
 									</ul>

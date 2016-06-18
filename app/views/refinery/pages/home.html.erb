@@ -55,9 +55,8 @@
 									<div class="cbp-l-caption-alignCenter">
 										<div class="cbp-l-caption-body">
 											<ul class="link-captions">
-												<li><a href="portfolio_single_item.html"><i class="rounded-x fa fa-link"></i></a></li>
-												<li><%= link_to refinery.productions_production_path(production), :"datat-title" => production.title do %>
-													<i class="rounded-x fa fa-search"></i><% end %></li>
+												<li><%= link_to refinery.productions_production_path(production), :"data-title" => production.title do %>
+													<i class="rounded-x fa fa-link"></i><% end %></li>
 											</ul>
 											<div class="cbp-l-grid-agency-title"><%= production.title %></div>
 											<div class="cbp-l-grid-agency-desc"><%= production.company %></div>
