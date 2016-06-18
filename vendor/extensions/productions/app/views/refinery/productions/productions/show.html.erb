@@ -5,21 +5,20 @@
 <% content_for :body do %>
           <p><%= render '/refinery/content_page' %></p>
   <% end %>
-    <!--=== Breadcrumbs ===-->
-    <div class="breadcrumbs">
-      <div class="container">
-        <h1 class="pull-left"><%= @production.title %></h1>
+
+
+    <!--=== Content Part ===-->
+    <div class="container content">
+      <br />
+      <br class="clr" />
+      <div>
+      <h1 class="pull-left"><%= @production.title %></h1>
         <ul class="pull-right breadcrumb">
           <li><a href="index.html">Home</a></li>
           <li><a href="">Productions</a></li>
           <li class="active"><%= @production.title %></li>
         </ul>
-      </div><!--/container-->
-    </div><!--/breadcrumbs-->
-    <!--=== End Breadcrumbs ===-->
-
-    <!--=== Content Part ===-->
-    <div class="container content">
+      </div>
       <div class="row portfolio-item margin-bottom-50">
         <!-- Carousel -->
         <div class="col-md-7">
